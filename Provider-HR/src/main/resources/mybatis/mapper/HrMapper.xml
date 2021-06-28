@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.taoji666.Hr.dao.HrMapper">
+
+<!--    获取员工所有信息，返回给HR的登录界面-->
+    <select id="getEmpAll" resultMap="EmpMap">
+        select `员工ID`,`姓名`,`出生日期`,`所属部门`,`职位`,`级别`,
+        `密码`
+        from emp;
+    </select>
+
+
+    <resultMap id="EmpMap" type="com.taoji666.entities.HR.Emp">
+        <id column="员工ID" property="yuanGongId"/>
+        <id column="姓名" property="XingMing"/>
+        <id column="出生日期" property="chuShengRiQi"/>
+        <id column="所属部门" property="suoShuBuMen"/>
+        <id column="职位" property="zhiWei"/>
+        <id column="级别" property="jiBie"/>
+        <id column="密码" property="miMa"/>
+    </resultMap>
+
+    <select id="getFocUser" resultMap="getFocMap">
+                select `员工ID`,`所属部门`,`密码`
+        from emp where `所属部门`= ’运行控制中心‘;
+    </select>
+
+
+    <resultMap id="getFocMap" type="com.taoji666.entities.HR.Emp">
+        <id column="员工ID" property="yuanGongId"/>
+        <id column="所属部门" property="suoShuBuMen"/>
+        <id column="密码" property="miMa"/>
+    </resultMap>
+
+    <select id="getMaintenUser" resultMap="getMaintenMap">
+              select `员工ID`,`所属部门`,`密码`
+        from emp where `所属部门`= ’维修中心‘;
+    </select>
+
+
+    <resultMap id="getMaintenMap" type="com.taoji666.entities.HR.Emp">
+        <id column="员工ID" property="yuanGongId"/>
+        <id column="所属部门" property="suoShuBuMen"/>
+        <id column="密码" property="miMa"/>
+    </resultMap>
+
+    <select id="getTgUser" resultMap="getTgUserMap">
+        select `员工ID`,`所属部门`,`密码`
+        from emp where `所属部门`= ’技术支援中心‘;
+    </select>
+
+
+    <resultMap id="getTgUserMap" type="com.taoji666.entities.HR.Emp">
+        <id column="员工ID" property="yuanGongId"/>
+        <id column="所属部门" property="suoShuBuMen"/>
+        <id column="密码" property="miMa"/>
+    </resultMap>
+
+    <select id="getPpcUser" resultMap="getPpcUserMap">
+        select `员工ID`,`所属部门`,`密码`
+        from emp where `所属部门`= ’生产管理中心‘;
+    </select>
+
+
+    <resultMap id="getPpcUserMap" type="com.taoji666.entities.HR.Emp">
+        <id column="员工ID" property="yuanGongId"/>
+        <id column="所属部门" property="suoShuBuMen"/>
+        <id column="密码" property="miMa"/>
+    </resultMap>
+
+    <select id="getHrUser" resultMap="getHrUserMap">
+        select `员工ID`,`所属部门`,`密码`
+        from emp where `所属部门`= ’人力资源部‘;
+    </select>
+
+
+    <resultMap id="getHrUserMap" type="com.taoji666.entities.HR.Emp">
+        <id column="员工ID" property="yuanGongId"/>
+        <id column="所属部门" property="suoShuBuMen"/>
+        <id column="密码" property="miMa"/>
+    </resultMap>
+
+
+
+
+</mapper>

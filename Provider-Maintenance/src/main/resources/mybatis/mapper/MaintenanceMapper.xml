@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.taoji666.maintenance.dao.MaintenMapper">
+
+    <select id="getMaintenanceByDate" resultMap="maintenMap">
+        select `序号`,`日期`,`注册号`,`航班号`,`维修类别`,`附加工作`,`非例行维修`,`故障申报`,`航材消耗`,`适航状态`,`维修单位`,`工时统计`
+        from Maintenance where `日期`= #{date};
+    </select>
+
+
+    <resultMap id="maintenMap" type="com.taoji666.entities.FleetManagment.Maintenance">
+        <id column="序号" property="zhuCeHao"/>
+        <id column="日期" property="xuHao"/>
+        <id column="注册号" property="serial"/>
+        <id column="航班号" property="xuHao"/>
+        <id column="维修类别" property="serial"/>
+        <id column="附加工作" property="xuHao"/>
+        <id column="非例行维修" property="serial"/>
+        <id column="故障申报" property="serial"/>
+        <id column="航材消耗" property="xuHao"/>
+        <id column="适航状态" property="serial"/>
+        <id column="维修单位" property="xuHao"/>
+        <id column="工时统计" property="serial"/>
+    </resultMap>
+
+
+</mapper>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.taoji666.maintenjob.dao.MaintenJobMapper">
+
+    <select id="getNonRoutineJobAll" resultMap="NonRoutineMap">
+        select `工作编号`,`故障描述`,`ATA章节`,`子章节`,`排故内容`,`故障级别`,`所需航材`,`故障状态`
+        from nonroutinejob;
+    </select>
+
+
+    <resultMap id="NonRoutineMap" type="com.taoji666.entities.JobMaintenance.NonRoutineJob">
+        <id column="工作编号" property="gongZuoBianHao"/>
+        <id column="故障描述" property="guZhangMiaoShu"/>
+        <id column="ATA章节" property="ata"/>
+        <id column="子章节" property="ziZhangJie"/>
+        <id column="排故内容" property="paiGuNeiRong"/>
+        <id column="故障级别" property="guZhangJiBie"/>
+        <id column="所需航材" property="hangCaiXiaoFei"/>
+        <id column="故障状态" property="guZhangZhuangTai"/>
+    </resultMap>
+
+    <select id="getRoutineJobAll" resultMap="RoutineMap">
+        select `序号`,`工作名称`,`ATA章节`,`子章节`,`所需工具`,`航材消耗`,`标准工时`,`工卡`
+        from routinejob;
+    </select>
+
+
+    <resultMap id="RoutineMap" type="com.taoji666.entities.JobMaintenance.RoutineJob">
+        <id column="序号" property="xuHao"/>
+        <id column="工作名称" property="gongZuoMingChen"/>
+        <id column="ATA章节" property="ata"/>
+        <id column="子章节" property="ziZhangJie"/>
+        <id column="所需工具" property="gongJu"/>
+        <id column="航材消耗" property="hangCaiXiaoFei"/>
+        <id column="标准工时" property="biaoZhunGongshi"/>
+        <id column="工卡" property="gongKa"/>
+    </resultMap>
+
+
+</mapper>

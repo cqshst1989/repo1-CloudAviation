@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <link rel="stylesheet" type="text/css" href="/css/Login.css" >
+</head>
+<body>
+  <h1>Welcome航空维修管理系统</h1>
+  <div id="login">
+      <h1>Login</h1>
+
+<!--      登录成功以后先去网关localhost9527,验证下-->
+      <form method="post" action="http://localhost:9527/distributionCenter" >
+          <input type="text" required="required" placeholder="员工ID" name="userID"></input><br>
+          <input type="password" required="required" placeholder="密码" name="password"></input><br>
+          <select name="Dept">
+              <option value ="maintenance">维修中心</option>
+              <option value ="foc">运控中心</option>
+              <option value="airSpare">航材管理中心</option>
+              <option value="hr">人力资源</option>
+              <option value="tg">技术组</option>
+              <option value="ppc">生产管理中心</option>
+          </select>
+          <button class="but" type="submit">登录</button>
+      </form>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: GateWay
+  cloud:
+    gateway:
+      routes:
+        - id: index
+          uri: http://localhost:1024
+          predicates:
+            - Path=/index  #只允许去首页
+
+        - id: DistributionCenter
+          uri: lb://WelomeHome   #lb负载均衡方式去DistributionCenter
+          predicates:
+            - Path=/distributionCenter  #只允许去DistributionCenter，根据不同职责返回登录页面
+
+    nacos:
+      discovery:
+        server-addr: 192.168.111.144:1111  #nginx端口
+

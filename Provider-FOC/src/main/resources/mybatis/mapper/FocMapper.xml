@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.taoji666.foc.dao.FocMapper">
+
+    <select id="getFocByDate" resultMap="focMap">
+        select `注册号`,`航班号`,`日期`,`进港/出港`,`出发地`,`目的地`,
+        `计划起飞时间`,`实际起飞时间`,`预计到达时间`,`实际到达时间`,`延误原因`,`停机位`,`航班状态`
+        from FOC where `日期`= #{date};
+    </select>
+
+
+    <resultMap id="focMap" type="com.taoji666.entities.FleetManagment.Foc">
+        <id column="注册号" property="zhuCeHao"/>
+        <id column="航班号" property="xuHao"/>
+        <id column="日期" property="serial"/>
+        <id column="进港/出港" property="xuHao"/>
+        <id column="出发地" property="serial"/>
+        <id column="目的地" property="xuHao"/>
+        <id column="计划起飞时间" property="serial"/>
+        <id column="实际起飞时间" property="serial"/>
+        <id column="预计到达时间" property="xuHao"/>
+        <id column="实际到达时间" property="serial"/>
+        <id column="延误原因" property="xuHao"/>
+        <id column="停机位" property="serial"/>
+        <id column="航班状态" property="serial"/>
+    </resultMap>
+
+
+</mapper>

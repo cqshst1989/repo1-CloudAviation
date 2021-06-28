@@ -1,0 +1,33 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: FOC-SERVICE
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848  #Nacos服务注册中心地址
+
+    sentinel:
+      transport:
+        port: 8719 #sentinel客户端 与 sentinel服务端 的传输端口
+        dashboard: localhost:8080 #配置Sentinel dashboard地址，通过web浏览器访问该地址可以进入控制台
+
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/fleetManagment
+    username: root
+    password: 1234567890
+
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/*.xml #sql映射文件所在位置
+  type-aliases-package: com.taoji666.entities.FleetManagment #实体类所在的位置，这个项目是引用Common-Entities子工程的jar包
+  config-location: classpath:mybatis/mybatis-config.xml #全局文件所在位置
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

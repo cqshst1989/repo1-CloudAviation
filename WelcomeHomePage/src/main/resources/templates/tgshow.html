@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>TG</title>
+</head>
+<body>
+  <h1 th:text="HelloTg">HelloTg</h1>
+
+  <h2 th:text="这里要呈现从服务端返回的维修计划的表格暂时空着后面再写"></h2>
+
+  <!--假装现在技术组下了一个B-2119飞机的更换ACARS的附加工作，并提交服务端-->
+
+  <form th:method="post" th:action="http://localhost:9527/maintenjob/nonroutine/newjob" >
+      <input th:type="text" th:required="required" th:placeholder="工作编号" th:name="nonRoutineJobID"></input><br>
+      <input th:type="text" th:required="required" th:placeholder="故障描述" th:name="desc"></input><br>
+      <input th:type="text" th:required="required" th:placeholder="ATA章节" th:name="ata"></input><br>
+      <input th:type="text" th:required="required" th:placeholder="子章节" th:name="ataSub"></input><br>
+      <input th:type="text" th:required="required" th:placeholder="排故内容" th:name="troubleShooting"></input><br>
+      <input th:type="text" th:required="required" th:placeholder="故障级别" th:name="troubleLevel"></input><br>
+      <input th:type="text" th:required="required" th:placeholder="故障状态" th:name="troubleStus"></input><br>
+
+
+
+
+      <!--      航材消耗-->
+      <input th:type="text" th:required="required" th:placeholder="航材1名称" th:name="airSpare01"></input><br>
+      <input th:type="text" th:required="required" th:placeholder="件号" th:name="airSpare01PN"></input><br>
+      <input th:type="text" th:required="required" th:placeholder="序号" th:name="airSpare01SN"></input><br>
+      <input th:type="text" th:required="required" th:placeholder="数量" th:name="airSpare01Num"></input><br>
+      <button th:type="submit" th:text="提交">提交</button>
+  </form>
+</body>
+</html>

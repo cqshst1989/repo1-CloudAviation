@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.taoji666.airstock.dao.AirStockMapper">
+
+
+    <select id="getAirSpareAll" resultMap="airstockMap">
+        select `序号`,`名称`,`件号`,`库存数量`,`可用数量`,`新增采购数量`,
+        `预计到料时间`
+        from stock;
+    </select>
+
+
+    <resultMap id="airstock" type="com.taoji666.entities.FleetManagment.Stock">
+        <id column="序号" property="xuHao"/>
+        <id column="名称" property="mingChen"/>
+        <id column="件号" property="jianHao"/>
+        <id column="库存数量" property="kuCunShu"/>
+        <id column="可用数量" property="keYongShu"/>
+        <id column="新增采购数量" property="xinZengCaiGouShu"/>
+        <id column="预计到料时间" property="daoLiaoRiQi"/>
+    </resultMap>
+
+
+</mapper>
